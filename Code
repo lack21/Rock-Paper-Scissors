@@ -1,0 +1,108 @@
+# lear
+# Rock, Paper, Scissors
+
+# Welcome to the RPS Game
+# This game is not made in pygame
+
+import random as rd
+
+print("\nWelcome to the Rock Paper Scissors Game!\n")
+
+rock = """
+      ******
+    **********
+    **********
+    **********
+      ******
+      """
+
+paper = """
+    **********
+    **********
+    **********
+    **********
+    **********
+    **********
+    """
+
+scissors = """
+    ___
+   |___| 
+    ___|!!!!!!!!!
+   |___|
+   """
+
+player_points = 0
+comp_points = 0
+
+while True:
+    move = input("\nYour move : ")
+    move = move.lower()
+
+    if move == "rock":
+        print("Player : \n", rock)
+
+    elif move == "paper":
+        print("Player : \n", paper)
+
+    else:
+        print("Player : \n", scissors)
+
+    comp_move = rd.randint(1, 3)
+    if comp_move == 1:
+        print("PC : \n", rock)
+
+    elif comp_move == 2:
+        print("PC : \n", paper)
+
+    else:
+        print("PC : \n", scissors)
+
+    if move == "rock" and comp_move == 1:
+        print("\nTie.\n")
+
+    elif move == "paper" and comp_move == 1:
+        print("\nPlayer gains the point.\n")
+        player_points += 1
+
+    elif move == "scissors" and comp_move == 1:
+        print("\nPC gains the point.\n")
+        comp_points += 1
+
+    elif move == "rock" and comp_move == 2:
+        print("\nPC gains the point.\n")
+        comp_points += 1
+
+    elif move == "paper" and comp_move == 2:
+        print("\nTie.\n")
+
+    elif move == "scissors" and comp_move == 2:
+        print("\nPlayer gains the point.\n")
+        player_points += 1
+
+    elif move == "rock" and comp_move == 3:
+        print("\nPlayer gains the point.\n")
+        player_points += 1
+
+    elif move == "paper" and comp_move == 3:
+        print("\nPC gains the point.\n")
+        comp_points += 1
+
+    elif move == "scissors" and comp_move == 3:
+        print("\nTie\n")
+
+    print(f"Player points : {player_points}")
+    print(f"Computer points : {comp_points}")
+
+    if player_points == 3:
+        print("""
+            You win!
+        Congratulations!
+        """)
+        break
+
+    elif comp_points == 3:
+        print("""
+            PC Wins!
+            """)
+        break
